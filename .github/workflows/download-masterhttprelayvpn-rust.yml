@@ -21,7 +21,7 @@ jobs:
 
       - name: Push Release to Repo
         run: |
-          curl https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.2.1/mhrv-rs-android-universal-v1.2.1.apk -o mhrv-rs-android-universal-v1.2.1.apk
+          aria2c https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.2.1/mhrv-rs-android-universal-v1.2.1.apk
           git add -A
           git commit -m "push release to repo"
           git push -u origin main
