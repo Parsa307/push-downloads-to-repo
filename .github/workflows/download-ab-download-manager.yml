@@ -1,0 +1,27 @@
+name: Push Release to Repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "parsastdev@duck.com"
+          git config --global user.name "Parsast"
+
+      - name: Push Release to Repo
+        run: |
+          aria2c https://github.com/amir1376/ab-download-manager/releases/download/v1.8.8/ABDownloadManager_1.8.8_android_universal.apk && aria2c https://github.com/amir1376/ab-download-manager/releases/download/v1.8.8/ABDownloadManager_1.8.8_linux_x64.tar.gz
+          git add -A
+          git commit -m "push release to repo"
+          git push -u origin main
