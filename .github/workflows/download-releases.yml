@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-
+          ref: releases
       - name: Configure Git
         run: |
           git config --global user.email "parsastdev@duck.com"
@@ -35,4 +35,4 @@ jobs:
           aria2c https://github.com/${{ github.event.inputs.GITHUB_REPO }}/releases/download/${{ github.event.inputs.VERSION }}/${{ github.event.inputs.FILE_NAME }}
           git add -A
           git commit -m "push release to repo"
-          git push -u origin main
+          git push -u origin releases
