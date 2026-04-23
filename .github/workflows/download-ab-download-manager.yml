@@ -1,4 +1,4 @@
-name: Push Release to Repo
+name: Download AB Download Manager
 
 on:
   workflow_dispatch:
