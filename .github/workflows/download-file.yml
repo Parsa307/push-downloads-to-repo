@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: releases
+          ref: downloads
 
       - name: Configure Git
         run: |
@@ -31,4 +31,4 @@ jobs:
         run: |
           git add -A
           git commit -m "push downloaded file to repo"
-          git push -u origin releases
+          git push -u origin downloads
